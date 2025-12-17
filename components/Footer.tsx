@@ -12,7 +12,7 @@ export default function Footer() {
         {/* Links */}
         <div className="flex items-center gap-6 text-sm">
           <a
-            href="https://pump.fun/coin/3nvvkPxqCyGUfj6mBQANoMyZjT8LTmJ7dbEpa9Rgpump"
+            href="https://pump.fun/coin/5efsFszyf7MW1XwNsz6wFJaDRAfJcUtkazGvpRDrpump"
             className="flex items-center gap-2 text-neutral-400 hover:text-orange-400 transition"
           >
             <ExternalLink className="h-4 w-4" />

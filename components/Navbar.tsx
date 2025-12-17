@@ -61,7 +61,7 @@ export default function Navbar() {
               </Button>
             </Link>
 
-            <Link href="">
+            <Link href="https://pump.fun/coin/5efsFszyf7MW1XwNsz6wFJaDRAfJcUtkazGvpRDrpump">
               <Button
                 size="sm"
                 className="bg-orange-500 hover:bg-orange-400 text-black font-semibold shadow shadow-orange-500/30"
