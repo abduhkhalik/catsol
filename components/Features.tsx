@@ -1,107 +1,76 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Zap, Users } from "lucide-react";
+import { Gift } from "lucide-react";
 import { motion } from "framer-motion";
 
-const features = [
-  {
-    title: "Cute by Nature",
-    desc: "Soft visuals and friendly energy that feels instantly familiar.",
-    icon: Heart,
-  },
-  {
-    title: "Solana Speed",
-    desc: "Lightning-fast transactions with consistently low fees.",
-    icon: Zap,
-  },
-  {
-    title: "Community First",
-    desc: "Created for fun and shaped by the people behind it.",
-    icon: Users,
-  },
-];
-
-const TickerRow = ({ reverse = false }: { reverse?: boolean }) => (
+const TickerRow = () => (
   <motion.div
     className="flex gap-16 whitespace-nowrap"
-    animate={{ x: reverse ? ["0%", "-100%"] : ["-100%", "0%"] }}
+    animate={{ x: ["-100%", "0%"] }}
     transition={{
-      duration: 40,
+      duration: 80,
       ease: "linear",
       repeat: Infinity,
     }}
   >
-    {Array.from({ length: 12 }).map((_, i) => (
+    {Array.from({ length: 10 }).map((_, i) => (
       <span
         key={i}
-        className="text-5xl md:text-6xl font-bold tracking-widest text-orange-400/5"
+        className="text-4xl md:text-5xl font-semibold tracking-widest text-orange-400/5"
       >
-        $CATSOL
+        $CATSOL GIVEAWAY
       </span>
     ))}
   </motion.div>
 );
 
-export default function Features() {
+export default function GiveawayNotice() {
   return (
-    <section className="relative py-32 px-6 bg-neutral-950 overflow-hidden">
-      {/* Animated ticker background */}
+    <section className="relative py-28 px-6 bg-neutral-950 overflow-hidden">
+      {/* Background ticker */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-0 right-0 rotate-[-6deg]">
+        <div className="absolute top-32 left-0 right-0 rotate-[-4deg]">
           <TickerRow />
         </div>
-        <div className="absolute top-48 left-0 right-0 rotate-[6deg]">
-          <TickerRow reverse />
+        <div className="absolute top-64 left-0 right-0 rotate-[4deg]">
+          <TickerRow />
         </div>
       </div>
 
-      {/* Foreground content */}
-      <div className="relative mx-auto max-w-6xl">
-        {/* Header */}
-        <div className="mb-20 text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white">
-            Why CATSOL Exists
-          </h2>
-          <p className="text-neutral-400 max-w-xl mx-auto">
-            A simple concept executed with personality and precision.
-          </p>
-        </div>
+      {/* Foreground */}
+      <div className="relative mx-auto max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <Card className="border border-neutral-800 bg-neutral-900/70 backdrop-blur-xl shadow-xl shadow-black/40">
+            <CardContent className="p-10 text-center space-y-6">
+              {/* Icon */}
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-400">
+                <Gift className="h-6 w-6" />
+              </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {features.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.6, ease: "easeOut" }}
-              >
-                <Card className="group relative h-full border border-neutral-800 bg-neutral-900/70 backdrop-blur-xl">
-                  <CardContent className="p-8 space-y-5">
-                    {/* Icon */}
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400 transition group-hover:bg-orange-500/20">
-                      <Icon className="h-6 w-6" />
-                    </div>
+              <h3 className="text-2xl md:text-3xl font-semibold text-white">
+                Daily Giveaway for Holders
+              </h3>
 
-                    <h3 className="text-lg font-medium text-white">
-                      {item.title}
-                    </h3>
+              <p className="text-neutral-400 leading-relaxed max-w-xl mx-auto">
+                We are preparing daily giveaways exclusively for all
+                <span className="text-orange-400 font-medium"> $CATSOL </span>
+                holders.  
+                Simply hold your tokens and stay connected with the community.
+              </p>
 
-                    <p className="text-sm text-neutral-400 leading-relaxed">
-                      {item.desc}
-                    </p>
-
-                    {/* Accent line */}
-                    <span className="block h-px w-8 bg-orange-400/40 transition-all duration-300 group-hover:w-12" />
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </div>
+              <p className="text-xs text-neutral-500">
+                Distribution mechanics and schedules will be announced through
+                official channels.
+              </p>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );
