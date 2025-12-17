@@ -12,7 +12,7 @@ export default function Footer() {
         {/* Links */}
         <div className="flex items-center gap-6 text-sm">
           <a
-            href="#"
+            href="https://pump.fun/coin/3nvvkPxqCyGUfj6mBQANoMyZjT8LTmJ7dbEpa9Rgpump"
             className="flex items-center gap-2 text-neutral-400 hover:text-orange-400 transition"
           >
             <ExternalLink className="h-4 w-4" />
@@ -20,11 +20,11 @@ export default function Footer() {
           </a>
 
           <a
-            href="#"
+            href="https://x.com/catsolana60"
+            target="_blank"
             className="flex items-center gap-2 text-neutral-400 hover:text-orange-400 transition"
           >
-            <Twitter className="h-4 w-4" />
-            X (Twitter)
+            <Twitter className="h-4 w-4" />X (Twitter)
           </a>
         </div>
 

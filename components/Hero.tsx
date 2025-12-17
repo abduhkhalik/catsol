@@ -76,8 +76,14 @@ export default function Hero() {
               size="lg"
               className="bg-orange-500 hover:bg-orange-400 text-black font-semibold px-8 shadow-lg shadow-orange-500/30"
             >
-              <Pill className="mr-2 h-5 w-5" />
-              View on Pump.fun
+              <Link
+                href={
+                  "https://pump.fun/coin/3nvvkPxqCyGUfj6mBQANoMyZjT8LTmJ7dbEpa9Rgpump"
+                }
+              >
+                <Pill className="mr-2 h-5 w-5" />
+                View on Pump.fun
+              </Link>
             </Button>
 
             <Button

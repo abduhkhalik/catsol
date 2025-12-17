@@ -65,8 +65,10 @@ export default function Navbar() {
               size="sm"
               className="bg-orange-500 hover:bg-orange-400 text-black font-semibold shadow shadow-orange-500/30"
             >
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Pump.fun
+              <Link href="https://pump.fun/coin/3nvvkPxqCyGUfj6mBQANoMyZjT8LTmJ7dbEpa9Rgpump">
+                <ExternalLink className="mr-2 h-4 w-4" />
+                Pump.fun
+              </Link>
             </Button>
           </div>
         </div>
