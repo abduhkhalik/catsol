@@ -51,25 +51,25 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hidden sm:inline-flex text-neutral-400 hover:text-orange-400"
-            >
-              <Link href={"https://x.com/catsolana60"}>
+            <Link href={"https://x.com/catsolana60"}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hidden sm:inline-flex text-neutral-400 hover:text-orange-400"
+              >
                 <Twitter className="h-4 w-4" />
-              </Link>
-            </Button>
+              </Button>
+            </Link>
 
-            <Button
-              size="sm"
-              className="bg-orange-500 hover:bg-orange-400 text-black font-semibold shadow shadow-orange-500/30"
-            >
-              <Link href="https://pump.fun/coin/3nvvkPxqCyGUfj6mBQANoMyZjT8LTmJ7dbEpa9Rgpump">
+            <Link href="">
+              <Button
+                size="sm"
+                className="bg-orange-500 hover:bg-orange-400 text-black font-semibold shadow shadow-orange-500/30"
+              >
                 <ExternalLink className="mr-2 h-4 w-4" />
                 Pump.fun
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

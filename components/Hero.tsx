@@ -72,19 +72,15 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-            <Button
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-400 text-black font-semibold px-8 shadow-lg shadow-orange-500/30"
-            >
-              <Link
-                href={
-                  "https://pump.fun/coin/3nvvkPxqCyGUfj6mBQANoMyZjT8LTmJ7dbEpa9Rgpump"
-                }
+            <Link href={""}>
+              <Button
+                size="lg"
+                className="bg-orange-500 hover:bg-orange-400 text-black font-semibold px-8 shadow-lg shadow-orange-500/30"
               >
                 <Pill className="mr-2 h-5 w-5" />
                 View on Pump.fun
-              </Link>
-            </Button>
+              </Button>
+            </Link>
 
             <Button
               size="lg"
