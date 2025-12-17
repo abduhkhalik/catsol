@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CATSOL — Cute Cat on Solana",
   description: "The cutest cat token on Solana. Simple, fun, community-driven.",
-  icons: "",
+  icons: "/images/maskot.png",
 };
 
 export default function RootLayout({
