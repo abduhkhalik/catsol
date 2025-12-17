@@ -3,35 +3,54 @@ import { Connection, PublicKey } from "@solana/web3.js";
 
 export const dynamic = "force-dynamic";
 
-// GANTI DENGAN MINT ADDRESS $CATSOL
-const MINT_ADDRESS = new PublicKey(
-  "PASTE_MINT_ADDRESS_CATSOL_DI_SIN"
-);
-
-// RPC (pakai Helius / QuickNode untuk production)
-const RPC_ENDPOINT = process.env.SOLANA_RPC_URL!;
+type Holder = {
+  rank: number;
+  address: string;
+  amount: string;
+};
 
 export async function GET() {
   try {
-    const connection = new Connection(RPC_ENDPOINT);
+    const rpcUrl = process.env.HELIUS_RPC_URL;
+    const mintAddress = process.env.CATSOL_MINT_ADDRESS;
 
+    if (!rpcUrl || !mintAddress) {
+      throw new Error("Missing env configuration");
+    }
+
+    const connection = new Connection(rpcUrl, {
+      commitment: "confirmed",
+    });
+
+    const mint = new PublicKey(mintAddress);
+
+    /**
+     * Helius-backed RPC call
+     * Fast & reliable for leaderboard
+     */
     const largestAccounts =
-      await connection.getTokenLargestAccounts(MINT_ADDRESS);
+      await connection.getTokenLargestAccounts(mint);
 
-    const holders = largestAccounts.value.map((item, index) => ({
-      rank: index + 1,
-      address: item.address.toBase58().slice(0, 4) +
-        "..." +
-        item.address.toBase58().slice(-4),
-      amount: item.uiAmountString ?? "0",
-    }));
+    const holders: Holder[] = largestAccounts.value.map(
+      (item, index) => ({
+        rank: index + 1,
+        address: shortenAddress(item.address.toBase58()),
+        amount: item.uiAmountString ?? "0",
+      })
+    );
 
     return NextResponse.json({ data: holders });
   } catch (error) {
-    console.error("Holders API error:", error);
+    console.error("Helius holders API error:", error);
+
     return NextResponse.json(
       { data: [] },
       { status: 500 }
     );
   }
+}
+
+/* ---------- Helpers ---------- */
+function shortenAddress(address: string) {
+  return `${address.slice(0, 4)}...${address.slice(-4)}`;
 }
