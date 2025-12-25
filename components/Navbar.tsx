@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const navItems = [
   { label: "Features", href: "#features" },
   { label: "Token", href: "#token" },
-  { label: "Community", href: "#community" },
+  { label: "Community", href: "https://t.me/+N88N2g9oGWIyNTE0" },
 ];
 
 export default function Navbar() {
